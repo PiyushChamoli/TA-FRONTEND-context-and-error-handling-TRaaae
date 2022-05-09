@@ -1,11 +1,17 @@
 import Card from "./Card";
 
-function Cards({ isDarkMode }) {
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
+
+function Cards() {
+  let mode = useContext(UserContext);
   return (
     <div className="cards_wrap">
-      <Card isDarkMode={isDarkMode} />
-      <Card isDarkMode={isDarkMode} />
-      <Card isDarkMode={isDarkMode} />
+      <UserContext.Provider value={mode}>
+        <Card />
+        <Card />
+        <Card />
+      </UserContext.Provider>
     </div>
   );
 }
