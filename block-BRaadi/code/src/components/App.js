@@ -1,4 +1,5 @@
 import React from "react";
+import ErrorBoundary from "./ErrorBoundary";
 import Header from "./Header";
 import Main from "./Main";
 
@@ -7,8 +8,10 @@ class App extends React.Component {
     let { isDarkMode } = this.state;
     return (
       <>
-        <Header isDarkMode={isDarkMode} />
-        <Main isDarkMode={isDarkMode} />
+        <ErrorBoundary>
+          <Header isDarkMode={isDarkMode} />
+          <Main isDarkMode={isDarkMode} />
+        </ErrorBoundary>
       </>
     );
   }
